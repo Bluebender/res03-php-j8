@@ -1,0 +1,28 @@
+<form action="index.php" method="post">
+    
+    <fieldset>
+        <label>Titre</label>
+        <input type="text" name="postTitle"/>
+    </fieldset>
+    <fieldset>
+        <label>Contenu</label>
+        <input type="text" name="postContent"/>
+    </fieldset>
+    <fieldset>
+        <label>Catégorie</label>
+        
+        <select name="category">
+            <option value="">--Choisissez une catégorie--</option>
+            <?php
+            foreach ($allCategories as $category){
+            ?>
+            <option value="<?php echo $category->getId(); ?>"><?php echo $category->getName(); ?></option>
+            <?php
+            }
+            ?>
+        </select>
+    </fieldset>
+    <input type="hidden" name="formName"/>
+    <input type="submit" value="Créer le post"/>
+
+</form>

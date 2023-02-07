@@ -1,0 +1,27 @@
+<table>
+    <thead>
+        <tr>
+            <th>Titre</th>
+            <th>Contenu</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+        foreach ($allPosts as $post){
+        ?> 
+        <tr>
+            <td><?php echo $post->getTitle(); ?></td>
+            <td><?php echo $post->getContent(); ?><td>
+        </tr>
+        <?php
+        }
+        ?>
+    </tbody>
+</table>
+
+<?php
+
+require "_post-create.phtml";
+require "_post-edit.phtml";
+
+?>

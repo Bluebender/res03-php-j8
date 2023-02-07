@@ -4,7 +4,6 @@ session_start();
 
 require "logic/router.php";
 require "logic/database.php";
-// require "models/User.php";
 
 $newUser = [
     "firstName" => "",
@@ -44,6 +43,30 @@ if (isset ($_POST["loginEmail"]) && !empty($_POST["loginEmail"]) && isset ($_POS
     }
 }
 
+// Création d'un nouveau post
+$newPost = [
+    "postTitle" => "",
+    "postContent" => "",
+    "author" => "",
+    "category" => ""
+    ];
+if (isset ($_POST["postTitle"]) && !empty($_POST["postTitle"]) && isset ($_POST["postContent"]) && !empty($_POST["postContent"])){
+
+    $allCategories = loadAllCategories();
+    $me = loadUser("vincent@mail.com");
+    var_dump ($me);
+    
+    $newPost["postTitle"] = $_POST["postTitle"];
+    $newPost["postContent"] = $_POST["postContent"];
+    $newPost["author"] = $me;
+    $newPost["category"] = $allCategories[$_POST["category"]-1];
+    
+
+    $postToSave = new Post($newPost["postTitle"], $newPost["postContent"], $newPost["author"], $newPost["category"]);
+    
+    savePost($postToSave);
+
+}
 
 
 if (isset ($_GET["route"])){
@@ -52,5 +75,9 @@ if (isset ($_GET["route"])){
 else{
     checkRoute("");
 }
+
+
+
+
 
 ?>

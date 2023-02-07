@@ -1,0 +1,27 @@
+<table>
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+        foreach ($allCategories as $category){
+        ?> 
+        <tr>
+            <td><?php echo $category->getName(); ?></td>
+            <td><?php echo $category->getDescription(); ?><td>
+        </tr>
+        <?php
+        }
+        ?>
+    </tbody>
+</table>
+
+<?php
+
+require "_post-category-create.phtml";
+require "_post-category-edit.phtml";
+
+?>

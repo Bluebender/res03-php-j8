@@ -9,20 +9,20 @@ function checkRoute(string $route) : void
         require "pages/register.php";
     }
     else if ($route === "admin-posts"){
-        if (isset ($_SESSION["passwordValid"]) && $_SESSION["passwordValid"]===true){
+        // if (isset ($_SESSION["passwordValid"]) && $_SESSION["passwordValid"]===true){
             require "pages/admin/post.php";
-        }
-        else{
-            echo "Votre session n'est pas valide";
-        }
+        // }
+        // else{
+        //     echo "Votre session n'est pas valide";
+        // }
     }
-    else if ($route === "admin-categories"){
-        if (isset ($_SESSION["passwordValid"]) && $_SESSION["passwordValid"]===true){
+    else if ($route === "admin-post-category"){
+        // if (isset ($_SESSION["passwordValid"]) && $_SESSION["passwordValid"]===true){
             require "pages/admin/post-category.php";
-        }
-        else{
-            echo "Votre session n'est pas valide";
-        }
+        // }
+        // else{
+        //     echo "Votre session n'est pas valide";
+        // }
     }
     else{
         require "pages/homepage.php";
